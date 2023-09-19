@@ -1,127 +1,102 @@
-# gentelella
+# ngx-admin [<img src="https://i.imgur.com/oMcxwZ0.png" alt="Eva Design System" height="20px" />](https://eva.design?utm_campaign=eva_design%20-%20home%20-%20ngx_admin%20github%20readme&utm_source=ngx_admin&utm_medium=referral&utm_content=top_status_tile) [![Build Status](https://travis-ci.org/akveo/ngx-admin.svg?branch=master)](https://travis-ci.org/akveo/ngx-admin)
 
-Gentelella Admin is a free to use Bootstrap admin template.
-This template uses the default Bootstrap 4 styles along with a variety of powerful jQuery plugins and tools to create a powerful framework for creating admin panels or back-end dashboards.
+[Who uses ngx-admin?](https://github.com/akveo/ngx-admin/issues/1645)| [Documentation](https://akveo.github.io/ngx-admin?utm_campaign=ngx_admin%20-%20home%20-%20ngx_admin%20github%20readme&utm_source=ngx_admin&utm_medium=referral&utm_content=github_readme_documentation_link) | [Installation Guidelines](https://akveo.github.io/ngx-admin/docs/getting-started/what-is-ngxadmin?utm_campaign=ngx_admin%20-%20home%20-%20ngx_admin%20github%20readme&utm_source=ngx_admin&utm_medium=referral&utm_content=github_readme_installation_guidelines) | [Angular templates](https://www.akveo.com/templates?utm_campaign=services%20-%20github%20-%20templates&utm_source=ngx_admin&utm_medium=referral&utm_content=github%20readme%20top%20angular%20templates%20link)
 
-Theme uses several libraries for charts, calendar, form validation, wizard style interface, off-canvas navigation menu, text forms, date range, upload area, form autocomplete, range slider, progress bars, notifications and much more.
+# Installation notes
 
-We would love to see how you use this awesome admin template. You can notify us about your site, app or service by tweeting to [@colorlib](https://twitter.com/colorlib). Once the list will grown long enough we will write a post similar to [this](https://colorlib.com/wp/avada-theme-examples/) to showcase the best examples.
+To install ngx-admin you have to use NodeJS version 14.14+ because of [node-sass](https://github.com/sass/node-sass) version utilized in the application.
 
+# Material theme for ngx-admin
 
-## Theme Demo
-![Gentelella Bootstrap Admin Template](https://cdn.colorlib.com/wp/wp-content/uploads/sites/2/gentelella-admin-template-preview.jpg 
-"Gentelella Theme Browser Preview")
+Material admin theme is based on the most popular Angular dashboard template - [ngx-admin](https://akveo.github.io/ngx-admin?utm_campaign=ngx_admin%20-%20home%20-%20ngx_admin%20github%20readme&utm_source=ngx_admin_material&utm_medium=referral&utm_content=github_readme)
+To use material theme checkout `feat/material-theme` branch.
 
-**[Template Demo](https://colorlib.com/polygon/gentelella/index.html)**
+## Key features
+
+- The most popular and trusted Angular open source dashboard template is out there. Used by hundreds of thousands developers worldwide and Fortune 500 companies\*.
+- Over 40+ Angular Components and 60+ Usage Examples. Kick off your project and save money by using ngx-admin.
+- Already using ngx-admin and willing to switch to material theme? Material theme is backward-compatible. Check out the article describing how to do that.
+- ngx-admin material works perfectly with Angular Material and Nebular. Take the best from both!
+
+### To use material theme checkout `feat/material-theme` branch
+
+# Admin template based on Angular 13+ and <a href="https://github.com/akveo/nebular">Nebular</a>
+
+<a target="_blank" href="https://akveo.com/ngx-admin/pages/dashboard?theme=corporate&utm_campaign=ngx_admin%20-%20demo%20-%20ngx_admin%20github%20readme&utm_source=ngx_admin&utm_medium=referral&utm_content=hero_banner_corporate"><img src="https://i.imgur.com/mFdqvgG.png"/></a>
+
+### UI Bakery
+
+Try low-code internal tool builder for free
+<a href="https://uibakery.io/?utm_source=github&utm_medium=clicks&utm_campaign=banner"><img src="https://user-images.githubusercontent.com/6151971/125071660-41f84900-e0c2-11eb-882a-0c675eb1e5e3.png"></a>
+
+[Check out our Store](https://store.akveo.com/pages/all-collections?utm_campaign=akveo_store%20-%20all%20bundles%20-%20ngx_admin%20github%20readme&utm_source=ngx_admin&utm_medium=referral%20&utm_content=check_out_our_store) for ready to use Backend Bundles.
+
+### Templates
+
+<a href="https://www.akveo.com/templates/fleet-management-dashboard?utm_campaign=services%20[…]x-admin%20&utm_medium=referral%20&utm_content=github_banner%20"><img src="https://i.imgur.com/Z8EwGfh.png"></a>
+
+### With 6 stunning visual themes
+
+| <a target="_blank" href="https://www.akveo.com/ngx-admin/pages/dashboard?theme=material-dark&utm_campaign=ngx_admin%20-%20demo%20-%20ngx_admin%20docs&utm_source=ngx_admin&utm_medium=referral&utm_content=ngx_admin_material_themes_material_dark"><img src="https://i.imgur.com/67YAlhf.png"/></a> | <a target="_blank" href="https://www.akveo.com/ngx-admin/pages/dashboard?theme=material-light&utm_campaign=ngx_admin%20-%20demo%20-%20ngx_admin%20docs&utm_source=ngx_admin&utm_medium=referral&utm_content=ngx_admin_material_themes_material_light"><img src="https://i.imgur.com/aQzw0hD.png"/></a> |
+| --- | --- |
+|  Material Dark | Material Light |
+
+| <a target="_blank" href="https://www.akveo.com/ngx-admin/pages/dashboard?theme=dark&utm_campaign=ngx_admin%20-%20demo%20-%20ngx_admin%20github%20readme&utm_source=ngx_admin&utm_medium=referral&utm_content=github_readme_theme_dark"><img src="https://i.imgur.com/9UkTGgr.png"/></a> | <a target="_blank" href="https://akveo.com/ngx-admin/pages/dashboard?theme=default&utm_campaign=ngx_admin%20-%20demo%20-%20ngx_admin%20github%20readme&utm_source=ngx_admin&utm_medium=referral&utm_content=github_readme_theme_default"><img src="https://i.imgur.com/Kn3xDKQ.png"/></a> |
+| --- | --- |
+|  Dark| Default |
+
+| <a target="_blank" href="https://www.akveo.com/ngx-admin/pages/dashboard?theme=cosmic&utm_campaign=ngx_admin%20-%20demo%20-%20ngx_admin%20github%20readme&utm_source=ngx_admin&utm_medium=referral&utm_content=github_readme_theme_cosmic"><img src="https://i.imgur.com/iJu2YDF.png"/></a> | <a target="_blank" href="https://www.akveo.com/ngx-admin/pages/dashboard?theme=corporate&utm_campaign=ngx_admin%20-%20demo%20-%20ngx_admin%20github%20readme&utm_source=ngx_admin&utm_medium=referral&utm_content=github_readme_theme_corporate"><img src="https://i.imgur.com/GpUt6NW.png"/></a> |
+| --- | --- |
+| Cosmic  | Corporate |
+
+### What's included:
+
+- Angular 13+ & Typescript
+- Bootstrap 4+ & SCSS
+- Responsive layout
+- RTL support
+- High resolution
+- Flexibly configurable themes with **hot-reload** (3 themes included)
+- Authentication module with multiple providers
+- 40+ Angular Components
+- 60+ Usage Examples
+
+### Demo
+
+<a target="_blank" href="http://www.akveo.com/ngx-admin/?utm_campaign=ngx_admin%20-%20demo%20-%20ngx_admin%20github%20readme&utm_source=ngx_admin&utm_medium=referral&utm_content=live_demo_link">Live Demo</a>
 
 ## Documentation
 
-**[Documentation](https://colorlibhq.github.io/gentelella/)**
+This template is using [Nebular](https://github.com/akveo/nebular) modules set, [here you can find documentation and other useful articles](https://akveo.github.io/nebular/docs/guides/install-based-on-starter-kit?utm_campaign=nebular%20-%20docs%20-%20ngx_admin%20github%20readme&utm_source=ngx_admin&utm_medium=referral&utm_content=documentation_useful_articles).
 
-## Installation via Package Manager
+### Empty starter kit
 
-Our goal is to make it installable on different Package Manager! Do you want to use it on your favorite Package Manager and you know how? Pull request all the way! 
+Don't need all the pages and modules and just looking for an empty starter kit for your next project? Check out our [starter-kit branch](https://github.com/akveo/ngx-admin/tree/starter-kit).
 
-As of now, this is some installation available:
+## BrowserStack
 
-**Bower**
+This project runs its tests on multiple desktop and mobile browsers using [BrowserStack](http://www.browserstack.com).
 
-```
-bower install gentelella --save
-```
+<img src="https://cloud.githubusercontent.com/assets/131406/22254249/534d889e-e254-11e6-8427-a759fb23b7bd.png" height="40" />
 
-**npm**
+## More from Akveo
 
-```
-npm install gentelella --save
-```
+- [Eva Icons](https://github.com/akveo/eva-icons) - 480+ beautiful Open Source icons
+- [Nebular](https://github.com/akveo/nebular) - Angular Components, Auth and Security
+- [Akveo templates](https://www.akveo.com/templates?utm_campaign=services%20-%20github%20-%20templates&utm_source=ngx_admin&utm_medium=referral&utm_content=ngx_admin%20github%20readme%20more%20from%20akveo%20link) - 10+ Ready-to-use apps templates to speed up your apps developments
 
-**yarn**
+### How can I support developers?
 
-```
-yarn add gentelella
-```
-## How to contribute
-To contribute, please ensure that you have stable [Node.js](https://nodejs.org/) and [npm](https://npmjs.com) installed.
+- Star our GitHub repo :star:
+- Create pull requests, submit bugs, suggest new features or documentation updates :wrench:
+- Follow us on [Twitter](https://twitter.com/akveo_inc) :feet:
+- Like our page on [Facebook](https://www.facebook.com/akveo/) :thumbsup:
 
-Test if Gulp CLI is installed by running `gulp --version`.  If the command isn't found, run `npm install -g gulp`.  For more information about installing Gulp, see the Gulp's [Getting Started](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md).
+### Looking for engineering services? 
 
-To have all gulp dependencies run ```npm install```
+Visit [our homepage](https://www.akveo.com?utm_campaign=services%20-%20akveo%20website%20-%20ngx_admin%20github%20readme&utm_source=ngx_admin&utm_medium=referral&utm_content=looking_for_engineering_services_visit_homepage) or simply leave us a message to [contact@akveo.com](mailto:contact@akveo.com). We will be happy to work with you!
 
-If `gulp` is installed, follow the steps below.
+### From Developers
 
-1. Fork and clone the repo.
-2. Run `gulp`, this will open gentelella on your default browser
-3. Now you can code, code and code!
-4. Submit a pull request
-
-## Gentelella for other platforms and frameworks
-
-* [Gentelella on Ruby on Rails 4](https://github.com/iogbole/gentelella_on_rails) thanks to Israel Ogbole.
-* [Gentelella on Rails 5.x](https://github.com/mwlang/gentelella-rails) thanks to Michael Lang
-* [Gentelella on Smarty 3](https://github.com/microvb/otp-thing) with one time password generator, validator, and QR code generator that has no web dependencies (self-contained) in PHP thanks to MicroVB INC
-* [Gentelella integrated into Symfony 5](https://github.com/mamless/Gentella-admin-Symfony-5) full stack PHP framework thanks to  Mamour Wane.
-* [Gentelella on Yii framework 2](https://github.com/yiister/yii2-gentelella) with an asset bundle, a layout template and some widgets.
-* [Gentelella on Angular 2](https://github.com/kmkatsma/angular2-webpack-starter-gentelella) Angular Webpack Starter modified to utilize the Gentelella.
-* [Gentelella on Aurelia](https://github.com/kmkatsma/aurelia-gentelella) Typescript webpack skeleton modified to utilize the Gentelella.
-* [Gentelella on Laravel](https://github.com/Labs64/laravel-boilerplate) PHP / Laravel 5 boilerplate project with Gentelella Admin theme support.
-* [Gentelella on Django](https://github.com/GiriB/django-gentelella) Gentelella modified to fit as a Django app
-* [Gentelella on Flask](https://github.com/afourmy/flask-gentelella) Gentelella modified to fit as a Flask app
-* [Gentelella on CakePHP 3](https://github.com/backstageel/cakephp-gentelella-theme) Gentelella modified to work on CakePHP
-* [Gentelella right to left](https://github.com/mortezakarimi/gentelella-rtl) Gentelella modified to work with right to left languages like Persian
-* [Gentelella-rtl on Yii framework 2](https://github.com/mortezakarimi/yii2-gentelella-rtl) with an asset bundle, a layout template and some widgets. inspired from [Gentelella on Yii framework 2](https://github.com/yiister/yii2-gentelella)
-* [Gentelella by React](https://github.com/thomaslwq/react-admin) Gentelella realized by React
-
-Let us know if you have done integration for this admin template on other platforms and frameworks and we'll be happy to share your work.
-
-## Scripts included:
-* Bootstrap
-* Font Awesome
-* jQuery-Autocomplete
-* FullCalendar
-* Charts.js
-* Bootstrap Colorpicker
-* Cropper
-* dataTables
-* Date Range Picker for Bootstrap
-* Dropzone
-* easyPieChart
-* ECharts
-* bootstrap-wysiwyg
-* Flot - Javascript plotting library for jQuery.
-* gauge.js
-* iCheck
-* jquery.inputmask plugin
-* Ion.RangeSlider
-* jQuery
-* jVectorMap
-* moment.js
-* Morris.js - pretty time-series line graphs
-* PNotify - Awesome JavaScript notifications
-* NProgress
-* Pace
-* Parsley
-* bootstrap-progressbar
-* select2
-* Sidebar Transitions - simple off-canvas navigations
-* Skycons - canvas based wather icons
-* jQuery Sparklines plugin
-* switchery - Turns HTML checkbox inputs into beautiful iOS style switches
-* jQuery Tags Input Plugin
-* Autosize - resizes text area to fit text
-* validator - HTML from validator using jQuery
-* jQuery Smart Wizard
-
-## Other templates and useful resources
-* [Free Bootstrap Admin Templates](https://colorlib.com/wp/free-bootstrap-admin-dashboard-templates/ "Bootstrap Admin Templates on Colorlib") - List of the best Free Bootstrap admin dashboard templates that are available for free for personal and commercial use.
-* [Free Admin Templates](https://colorlib.com/wp/free-html5-admin-dashboard-templates/ "List of free HTML based admin templates by Colorlib") - Long list of the best free HTML5 powered admin dashboard templates. Available for personal and commercial use.
-* [Angular Templates](https://colorlib.com/wp/angularjs-admin-templates/ "Angular Admin Templates on Colorlib") - List of the most popular admin templates based on AngularJS.
-* [HTML Admin Templates](https://colorlib.com/wp/html-admin-templates/ "Material Design Admin Templates on Colorlib") - Most of these templates are based on AngularJS and uses a stunning Material design.
-* [Bootstrap Admin Templates](https://colorlib.com/wp/bootstrap-admin-templates/ "List of Premium Bootstrap Admin Templates by Colorlib") - List of premium Bootstrap admin templates that uses a minimal flat or material design. Majority of these themes uses AngularJS but HTML5 versions are also available.
-* [WordPress Admin Templates](https://colorlib.com/wp/wordpress-admin-dashboard-themes-plugins/ "List of WordPress Admin Dashboard Templates and Plugins by Colorlib") - List of the best WordPress admin dashboard templates and plugins that will add a personal touch to your WordPress dashboard.
-* [WordPress Themes](https://colorlib.com/wp/free-wordpress-themes/ "List of Free WordPress themes by Colorlib") - A huge selection of the best free WordPress themes that are all licensed under GPL and are available for personal and commercial use without restrictions.
-
-## License information
-Gentelella is licensed under The MIT License (MIT). Which means that you can use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software. But you always need to state that Colorlib is the original author of this template.
-
-Project is developed and maintained by [Colorlib](https://colorlib.com/ "Colorlib - Make Your First Blog") and Aigars Silkalns
+Made with :heart: by [Akveo team](https://www.akveo.com?utm_campaign=services%20-%20akveo%20website%20-%20ngx_admin%20github%20readme&utm_source=ngx_admin&utm_medium=referral&utm_content=from_developers_made_by). Follow us on [Twitter](https://twitter.com/akveo_inc) to get the latest news first!
+We're always happy to receive your feedback!

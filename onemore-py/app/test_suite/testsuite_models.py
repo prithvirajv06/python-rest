@@ -6,32 +6,34 @@ from server import db
 
 
 @dataclass
-class Workspace(db.Model):
-    __tablename__ = "workspace"
+class TestSuite(db.Model):
+    __tablename__ = "test_suite"
     id = db.Column(db.Integer, primary_key=True)
-    workspace_name = db.Column(db.String(150), nullable=False)
+    testsuite_name = db.Column(db.String(150), nullable=False)
     description = db.Column(db.String(500), nullable=True)
     user = db.Column(db.String(10), db.ForeignKey("users.id"), nullable=False)
+    workspace = db.Column(db.String(10), db.ForeignKey("workspace.id"), nullable=False)
 
     def __init__(self, **kwargs):
         """
         The function takes in a dictionary of keyword arguments and assigns the values to the class
         attributes
         """
-        self.workspace_name = kwargs.get("workspace_name")
+        self.testsuite_name = kwargs.get("")
         self.description = kwargs.get("description")
         self.user = kwargs.get("user")
+        self.workspace = kwargs.get("workspace")
 
     def __repr__(self):
         """
         The __repr__ function is used to return a string representation of the object
         :return: The username of the user.
         """
-        return "<Workspace {}>".format(self.workspace_name)
+        return "<Testsuite {}>".format(self.testsuite_name)
 
 
-class WorkspaceSchema(Schema):
+class TestsuiteSchema(Schema):
     id = fields.Str()
-    workspace_name = fields.Str()
+    testsuite_name = fields.Str()
     description = fields.Str()
     user = fields.Str()

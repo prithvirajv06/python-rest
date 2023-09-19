@@ -1,6 +1,5 @@
 """App entry point."""
 
-
 """Initialize Flask app."""
 import os
 from flask import Flask
@@ -31,10 +30,14 @@ def create_app():
 
     api = Api(app=app)
     from app.workspace.workspace_routes import create_workspace_routes
+    from app.test_suite.testsuite_routes import create_testsuite_routes
+    from app.test_case.testcase_routes import create_testcase_routes
     from app.users.user_routes import create_authentication_routes
 
     create_authentication_routes(api=api)
     create_workspace_routes(api=api)
+    create_testsuite_routes(api=api)
+    create_testcase_routes(api=api)
 
     db.init_app(app)
 
