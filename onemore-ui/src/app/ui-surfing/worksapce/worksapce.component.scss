@@ -1,0 +1,34 @@
+.dataTables_filter {
+  right: 20px;
+  position: absolute;
+}
+
+.action {
+  right: 20px;
+  position: absolute;
+
+  button {
+    margin-left: 5px;
+  }
+}
+
+.delete {
+  color: rgb(192, 13, 162) !important;
+  cursor: pointer;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.edit {
+  color: rgb(14, 16, 133) !important;
+  cursor: pointer;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.manage-ts {
+  color: rgb(16, 116, 197) !important;
+  cursor: pointer;
+  margin-left: 5px;
+  margin-right: 5px;
+}

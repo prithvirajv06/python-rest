@@ -1,23 +1,32 @@
-/**
- * @license
- * Copyright Akveo. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
-import { Component, OnInit } from '@angular/core';
-import { AnalyticsService } from './@core/utils/analytics.service';
-import { SeoService } from './@core/utils/seo.service';
+import { Component } from '@angular/core';
+import { Spinkit } from 'ng-http-loader';
+import { ToastrService } from 'ngx-toastr';
+import { AppStoreService } from './core/app-store.service';
+import { Router } from '@angular/router';
+import { env } from 'src/environment';
 
 @Component({
-  selector: 'ngx-app',
-  template: '<router-outlet></router-outlet>',
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
+  title = 'onemore-ui';
+  public spinkit = Spinkit;
+  showMenu = false;
 
-  constructor(private analytics: AnalyticsService, private seoService: SeoService) {
+  constructor(private appStore: AppStoreService, private route: Router) {
+    this.subMenu();
   }
 
-  ngOnInit(): void {
-    this.analytics.trackPageViews();
-    this.seoService.trackCanonicalChanges();
+  subMenu() {
+    this.showMenu = this.appStore.getAuthStatus();
+    this.appStore.SHOW_MENU_S.subscribe((data) => {
+      if (data) {
+        this.showMenu = true;
+      } else if (!data) {
+        this.showMenu = false;
+      }
+    });
   }
 }

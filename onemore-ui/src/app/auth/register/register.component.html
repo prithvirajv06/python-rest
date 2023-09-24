@@ -1,0 +1,54 @@
+<div class="container-register">
+  <form class="splash-container" [formGroup]="formGroup">
+    <div class="card">
+      <div class="card-header">
+        <img src="../../../assets/images/logo.png" style="width: 100%;">
+
+        <h3 class="mb-1">Registrations Form</h3>
+        <p>Please enter your user information.</p>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <input class="form-control form-control-lg" id="email" type="email" placeholder="Email" autocomplete="off"
+            formControlName="email">
+          <div class="invalid-feedback" style="display: block;"
+            *ngIf="formGroup.get('email')?.touched && formGroup.get('email')?.invalid">
+            Please provide a valid Email.
+          </div>
+        </div>
+        <div class="form-group">
+          <input class="form-control form-control-lg" id="password" type="password" placeholder="Password"
+            formControlName="password">
+          <div class="invalid-feedback" style="display: block;"
+            *ngIf="formGroup.get('password')?.touched && formGroup.get('password')?.invalid">
+            Please provide a valid Password.
+          </div>
+        </div>
+        <div class="form-group">
+          <input class="form-control form-control-lg" required="" placeholder="Confirm"
+            formControlName="confirmPassword">
+          <div class="invalid-feedback" style="display: block;"
+            *ngIf="formGroup.get('confirmPassword')?.touched && formGroup.get('confirmPassword')?.invalid">
+            Please provide a valid Confirm Password.
+          </div>
+          <div class="invalid-feedback" style="display: block;" *ngIf="confirmPassMismatch">
+            Password mismatch !
+          </div>
+        </div>
+        <div class="form-group pt-2">
+          <button class="btn btn-block btn-primary" type="submit" (click)="registerUser()">Register My Account</button>
+        </div>
+        <div class="form-group">
+          <label class="custom-control custom-checkbox">
+            <input class="custom-control-input" type="checkbox"><span class="custom-control-label">By creating an
+              account,
+              you agree the <a href="#">terms and conditions</a></span>
+          </label>
+        </div>
+      </div>
+      <div class="card-footer bg-white">
+        <p>Already member? <a href="#" class="text-secondary" [routerLink]="'/login'">Login Here.</a></p>
+      </div>
+    </div>
+  </form>
+</div>

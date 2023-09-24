@@ -1,0 +1,42 @@
+<div class="nav-left-sidebar sidebar-dark">
+  <div class="menu-list" *ngIf="menu_data">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav flex-column">
+          <li class="nav-divider">
+            Menu
+          </li>
+          <li class="nav-item" *ngFor="let menu of menu_data;let i=index">
+            <a class="nav-link" [routerLink]="[menu.route_url]" routerLinkActive="active"  href="#"
+              [attr.data-toggle]="(menu.submenu && menu.submenu.length>0) ? 'collapse':''" aria-expanded="false"
+              attr.data-target="#submenu-{{i+1}}" attr.aria-controls="submenu-{{i+1}}"><i class="fa fa-fw"
+                [ngClass]="menu.icon"></i>{{menu.title}} </a>
+            <ng-container *ngIf="menu.submenu && menu.submenu.length>0">
+              <div id="submenu-{{i+1}}" class="collapse submenu"
+                style="">
+                <ul class="nav flex-column">
+                  <li class="nav-item"  *ngFor="let s_menu of menu.submenu;let j=index">
+                    <a class="nav-link" href="#"  [routerLink]="[s_menu.route_url]"
+                      [attr.data-toggle]="(s_menu.submenu && s_menu.submenu.length>0) ? 'collapse':''"
+                      aria-expanded="false" attr.data-target="#submenu-{{i+1}}-{{j+1}}" routerLinkActive="active"
+                      attr.aria-controls="submenu-{{i+1}}-{{j+1}}">{{s_menu.title}}</a>
+                    <ng-container *ngIf="s_menu.submenu && s_menu.submenu.length>0">
+                      <div id="submenu-{{i+1}}-{{j+1}}" class="collapse submenu"
+                        *ngFor="let s_s_menu of s_menu.submenu;let k=index" style="">
+                        <ul class="nav flex-column">
+                          <li class="nav-item">
+                            <a class="nav-link" href="index.html"  [routerLink]="[s_s_menu.route_url]" routerLinkActive="active">{{s_s_menu.title}}</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </ng-container>
+                  </li>
+                </ul>
+              </div>
+            </ng-container>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>

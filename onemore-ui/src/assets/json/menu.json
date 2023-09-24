@@ -1,0 +1,33 @@
+{
+  "TESTER": [
+
+    {
+      "title": "UI Testing",
+      "icon": "fa-tv",
+      "submenu": [
+        {
+          "title": "UI-Workspace",
+          "route_url": "onemore/ui-workspace"
+        },
+        {
+          "title": "Execution",
+          "route_url": "onemore/ui-test-execution"
+        }
+      ]
+    },
+    {
+      "title": "API Testing",
+      "icon": "fa-link",
+      "submenu": [
+        {
+          "title": "API-Workspace",
+          "route_url": "onemore/api-workspace"
+        },
+        {
+          "title": "Execution",
+          "route_url": "onemore/api-test-execution"
+        }
+      ]
+    }
+  ]
+}

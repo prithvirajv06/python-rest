@@ -25,8 +25,9 @@ class GetAllTestSuite(Resource):
         if (status == 401):
             return make_response(input_data, status)
         else:
-            response, status = get_all_test_suite(input_data['workspace'])
+            response, status = get_all_test_suite(input_data['workspace'], 50, 1)
             return make_response(response, status)
+
 
 class DeleteTestSuite(Resource):
     @staticmethod

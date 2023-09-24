@@ -1,0 +1,136 @@
+.testsuite-card {
+  cursor: pointer;
+  width: 300px;
+  height: 200px;
+  border-radius: 20px;
+  text-align: center;
+  margin-left: 20px;
+
+  i {
+    font-size: 50px;
+  }
+
+  .name {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  .description {
+    margin-top: 5px;
+  }
+
+  .delete {
+    display: none;
+    font-size: large;
+  }
+}
+
+.delete-section {
+  right: 15px;
+  top: 10px;
+  position: absolute;
+  background-color: white;
+  height: 30px;
+  width: 30px;
+  border-radius: 2px;
+  padding: 5px;
+}
+
+.testsuite-card:hover {
+  background-color: #0e0c28;
+  color: white;
+
+  .delete {
+    display: block;
+    color: rgb(218, 25, 57) !important;
+  }
+}
+
+.dataTables_filter {
+  right: 20px;
+  position: absolute;
+}
+
+.action {
+  right: 20px;
+  position: absolute;
+
+  button {
+    margin-left: 5px;
+  }
+}
+
+.testcase-card {
+  width: inherit;
+  width: inherit;
+  height: 25px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  cursor: pointer;
+
+  i {
+    top: 4px;
+    left: 5px;
+    position: absolute;
+  }
+
+  .action {
+    width: 25%;
+    display: inline-block;
+
+    i {
+      display: none;
+      margin-left: 20px;
+    }
+
+    .up {
+      right: -20px;
+      font-size: 17px;
+      position: absolute;
+    }
+
+    .down {
+      right: 35px;
+      font-size: 17px;
+      position: absolute;
+    }
+
+    .delete {
+      left: 72px;
+      font-size: 17px;
+      position: absolute;
+    }
+  }
+
+
+
+  .test-name {
+    text-align: center;
+  }
+}
+
+.testcase-card:hover {
+  .action {
+    i {
+      display: block;
+    }
+  }
+}
+
+.up:hover {
+  color: rgb(110, 43, 165);
+}
+
+.down:hover {
+  color: rgb(121, 32, 180);
+}
+
+.delete:hover {
+  color: red;
+}
+
+
+.tc-selected {
+  background-color: #181266b9;
+  color: white;
+}

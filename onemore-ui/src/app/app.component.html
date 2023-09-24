@@ -1,0 +1,13 @@
+<ng-container *ngIf="showMenu">
+  <app-header></app-header>
+  <app-left-navbar></app-left-navbar>
+</ng-container>
+<ng-http-loader [backdrop]="false" [backgroundColor]="'#ff0000'" [debounceDelay]="100" [extraDuration]="300"
+  [minDuration]="300" [backdropBackgroundColor]="'#777777'" [spinner]="spinkit.skWave">
+</ng-http-loader>
+<div class="dashboard-wrapper" *ngIf="showMenu;else :nomenu">
+  <router-outlet></router-outlet>
+</div>
+<ng-template #nomenu>
+  <router-outlet></router-outlet>
+</ng-template>

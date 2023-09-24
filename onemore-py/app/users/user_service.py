@@ -12,7 +12,7 @@ from app.users.user_validation import (
     CreateSignupInputSchema, ResetPasswordInputSchema,
 )
 from app.utils.http_code import HTTP_200_OK, HTTP_201_CREATED, HTTP_400_BAD_REQUEST
-
+from marshmallow import Schema, INCLUDE
 
 def create_user(request, input_data):
     """
@@ -22,7 +22,7 @@ def create_user(request, input_data):
     :param input_data: This is the data that is passed to the function
     :return: A response object
     """
-    create_validation_schema = CreateSignupInputSchema()
+    create_validation_schema = CreateSignupInputSchema(unknown=INCLUDE)
     errors = create_validation_schema.validate(input_data)
     if errors:
         return generate_response(message=errors)

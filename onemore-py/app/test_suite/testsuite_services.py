@@ -1,15 +1,16 @@
 import json
 
+from marshmallow import EXCLUDE
+
 from app.utils.common import generate_response
 from app.utils.http_code import HTTP_201_CREATED, HTTP_200_OK, HTTP_204_NO_CONTENT
 from app.test_suite.testsuite_models import TestSuite, TestsuiteSchema
 from app.test_suite.testsuite_validation import Create_TS_Save_Schema
 from server import db
-from app.workspace.wspace_models import Workspace, WorkspaceSchema
 
 
 def create_test_suite(request, input_data, user):
-    create_validation_schema = Create_TS_Save_Schema()
+    create_validation_schema = Create_TS_Save_Schema(unknown=EXCLUDE)
     errors = create_validation_schema.validate(input_data)
     if (errors):
         return generate_response(message=errors)
@@ -22,15 +23,18 @@ def create_test_suite(request, input_data, user):
     )
 
 
-def get_all_test_suite(workspace):
-    result = db.session.query(TestSuite).filter(TestSuite.workspace == workspace).all()
-    schema = TestSuite(many=True)
+def get_all_test_suite(workspace, per_page, page):
+    query = db.session.query(TestSuite).filter(TestSuite.workspace == workspace).paginate(page=page, per_page=per_page)
+    db.session.close()
+    result = query.items
+    schema = TestsuiteSchema(many=True)
     return generate_response(
         data=schema.dump(result), message="Fetched all Test Suite", status=HTTP_200_OK)
 
+
 def delete_test_suite(input_data):
     result = db.session.query(TestSuite).filter(TestSuite.id == input_data['id']).delete()
-    if(result==0):
+    if (result == 0):
         return generate_response(
             data={}, message="Test Suite not found", status=HTTP_204_NO_CONTENT)
     db.session.commit()

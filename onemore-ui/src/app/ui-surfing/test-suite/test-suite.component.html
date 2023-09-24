@@ -1,0 +1,138 @@
+<div style="margin-top: 85px;"></div>
+
+<ng-container [ngSwitch]="modeOfScreen">
+  <ng-container *ngSwitchCase="'ENQ'">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 row" style="text-align: center;">
+      <div class="col-md-12" style="margin-bottom: 20px;right: 20px;position: relative;">
+        <button class="btn btn-secondary" style="float: left;margin-left: 30px;" (click)="goToWorkspace()">
+          <i class="fas fa-arrow-left"></i>
+          Back to workspace</button>
+        <button class="btn btn-primary" style="float: right;" (click)="createTS()">Add
+          Testsuite <i class="fas fa-plus"></i></button>
+      </div>
+      <div class="card testsuite-card col-md-2" *ngFor="let ts of testsuiteList">
+        <i class="m-r-10 mdi mdi-zip-box"></i>
+        <span class="name" (click)="editTestSuite(ts)">{{ts.testsuite_name}}</span>
+        <p class="description">{{ts.description}}</p>
+
+        <span class="delete-section" (click)="deleteTestSuite(ts.id)">
+          <i class="fas fa-trash delete"></i>
+        </span>
+      </div>
+
+      <ng-container *ngIf="testsuiteList.length<1">
+        <div style="text-align: center;margin-top:10px; width: 100%;">No Test suite found for this workspace, let's <a
+            class="click">Add
+            Onemore</a></div>
+      </ng-container>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'CREATE'">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <div class="card">
+        <h5 class="card-header">Create Onemore Testsuite</h5>
+        <div style="margin-top: 5px;" class="action">
+          <button class="btn btn-primary" (click)="saveTestsuite()" *ngIf="isCreate;else: editBtn">Save</button>
+          <ng-template #editBtn>
+            <button class="btn btn-primary" (click)="updateTestsuite()">Update</button>
+          </ng-template>
+          <button class="btn btn-secondary" (click)="formGroup.reset();modeOfScreen='ENQ'">Cancel</button>
+        </div>
+        <div class="card-body">
+          <form id="validationform" data-parsley-validate="" novalidate="" [formGroup]="formGroup">
+            <div class="form-group row">
+              <label class="col-12 col-sm-3 col-form-label text-sm-right">Test Suite Name</label>
+              <div class="col-12 col-sm-8 col-lg-6">
+                <input type="text" required="" placeholder="Type test suite name" class="form-control"
+                  formControlName="testsuite_name">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-12 col-sm-3 col-form-label text-sm-right">Description</label>
+              <div class="col-12 col-sm-8 col-lg-6">
+                <textarea type="text" required="" data-parsley-minlength="6" placeholder="Description"
+                  class="form-control" formControlName="description">
+                  </textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-12 col-sm-3 col-form-label text-sm-right">Web Application URL</label>
+              <div class="col-12 col-sm-8 col-lg-6">
+                <input type="text" required="" data-parsley-minlength="6" placeholder="URL" class="form-control"
+                  formControlName="application">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-12 col-sm-3 col-form-label text-sm-right">Loader</label>
+              <div class="col-12 col-sm-8 col-lg-6">
+                <input type="text" required="" data-parsley-minlength="6" placeholder="Loader CSS" class="form-control"
+                  formControlName="loaderCss">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'TES_EDIT'">
+    <div style="margin-left: 5px;">
+      <div class="page-header">
+        <h2 class="pageheader-title">{{selectedTestSuite.testsuite_name }}</h2>
+        <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum
+          mi. Morbi lobortis pulvinar quam.</p>
+        <div class="page-breadcrumb">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Test Suite</a></li>
+              <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Edit</a></li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 row" style="text-align: center;height: 80vh;">
+        <div class="col-md-3 card">
+
+          <div class="card testcase-card" *ngFor="let tc of testCaseList" (click)="editTestCase(tc)"
+            [ngClass]="selectedTestCase && selectedTestCase.id==tc.id?'tc-selected':''">
+            <i class="fas fa-keyboard" *ngIf="tc.test_case_type=='ENTER_VALUE'"></i>
+            <i class="fas fa-mouse-pointer" *ngIf="tc.test_case_type=='CLICK'"></i>
+            <span class="test-name">{{tc.testcase_name}}</span>
+            <div class="action">
+              <i class="fas fa-arrow-circle-up up"></i>
+              <i class="fas fa-arrow-circle-down down"></i>
+              <i class="fas fa-trash delete" (click)="deleteTestCase(tc)"></i>
+            </div>
+          </div>
+          <div class="card testcase-card" *ngIf="showTestCase">
+            <input class="form-control" [(ngModel)]="testCaseName" name="testCaseName"> <a
+              (click)="saveTestCase()">Create</a>
+          </div>
+          <div style="text-align: center;width: 75%;">
+            <button class="btn btn-primary" style="bottom: 5px;position: absolute;" (click)="addNewTestCase()">Add
+              +</button>
+          </div>
+          <br>
+          <ng-container *ngIf="testCaseList&&  testCaseList.length<1">
+            <div style="text-align: center;margin-top:10px; width: 100%;">No Test case found for this suite, let's <a
+                class="click">Add
+                Onemore</a></div>
+          </ng-container>
+
+        </div>
+        <div class="col-md-9 card">
+          <div class="row">
+            <div class="col-md-12" style="text-align: left;">
+              <ng-container *ngIf="!selectedTestCase">
+                <div style="text-align: center;margin-top: 45%;">
+                  Select A Test Case To Start Editing
+                </div>
+              </ng-container>
+              <app-test-case *ngIf="selectedTestCase" [testcase]="selectedTestCase"
+                (refresh)="setTestCaseData()"></app-test-case>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>

@@ -1,0 +1,161 @@
+<div class="main-content container-fluid p-0">
+  <div class="email-inbox-header">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="email-title"><span class="icon"><i class="fas fa-inbox"></i></span>
+          {{formGroup.get('testcase_name')?.value}} <span class="new-messages">({{formGroup.get('id')?.value}})
+            <i class="m-r-5 mdi mdi-content-copy"></i></span> </div>
+      </div>
+      <div class="col-md-4 action-btn">
+        <button class="btn btn-primary" (click)="saveTestCase()">Save</button>
+        <button class="btn btn-secondary">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <div>
+    <form [formGroup]="formGroup">
+      <div class="accrodion-regular">
+        <div id="accordion3">
+          <div class="card">
+            <div class="card-header" id="headingSeven">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven"
+                  aria-expanded="false" aria-controls="collapseSeven">
+                  <span class="fas fa-angle-down mr-3"></span>Selector For Element
+                </button>
+              </h5>
+            </div>
+            <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion3" style="">
+              <div class="card-body">
+                <div formGroupName="test_case_details">
+                  <form formGroupName="selector_group">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label text-sm-right">Selectors</label>
+                          <div class="col-sm-6">
+                            <div class="custom-controls-stacked">
+                              <form formGroupName="css_seclector">
+                                <label class="custom-control custom-checkbox">
+                                  <input id="ck1" name="ck1" type="checkbox" data-parsley-multiple="groups" value="true"
+                                    data-parsley-mincheck="2" data-parsley-errors-container="#error-container1"
+                                    class="custom-control-input" formControlName="is_selected"><span
+                                    class="custom-control-label">CSS</span>
+                                </label>
+                              </form>
+                              <form formGroupName="id_seclector">
+                                <label class="custom-control custom-checkbox">
+                                  <input id="ck2" name="ck2" type="checkbox" data-parsley-multiple="groups" value="true"
+                                    data-parsley-mincheck="2" data-parsley-errors-container="#error-container1"
+                                    class="custom-control-input" formControlName="is_selected"><span
+                                    class="custom-control-label">ID</span>
+                                </label>
+                              </form>
+                              <form formGroupName="xpath_seclector">
+                                <label class="custom-control custom-checkbox">
+                                  <input id="ck3" name="ck3" type="checkbox" data-parsley-multiple="groups" value="true"
+                                    data-parsley-mincheck="2" required=""
+                                    data-parsley-errors-container="#error-container1" class="custom-control-input"
+                                    formControlName="is_selected"><span class="custom-control-label">X-Path</span>
+                                </label>
+                              </form>
+                              <div id="error-container1"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-8">
+                        <ng-container
+                          *ngIf="formGroup.get('test_case_details')?.get('selector_group')?.get('xpath_seclector')?.get('is_selected')?.value">
+                          <form formGroupName="xpath_seclector">
+                            <label for="xpath">X-Path</label>
+                            <input type="text" class="form-control" id="xpath" placeholder="selector" required=""
+                              formControlName="selector">
+                          </form>
+                        </ng-container>
+                        <br>
+                        <ng-container
+                          *ngIf="formGroup.get('test_case_details')?.get('selector_group')?.get('css_seclector')?.get('is_selected')?.value">
+                          <form formGroupName="css_seclector">
+                            <label for="css">CSS</label>
+                            <input type="text" class="form-control" id="css" placeholder="selector" required=""
+                              formControlName="selector">
+                          </form>
+                        </ng-container>
+                        <br>
+                        <ng-container
+                          *ngIf="formGroup.get('test_case_details')?.get('selector_group')?.get('id_seclector')?.get('is_selected')?.value">
+                          <form formGroupName="id_seclector">
+                            <label for="id">Field ID</label>
+                            <input type="text" class="form-control" id="id" placeholder="selector" required=""
+                              formControlName="selector">
+                          </form>
+                        </ng-container>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-2">
+            <div class="card-header" id="headingEight">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseEight"
+                  aria-expanded="false" aria-controls="collapseEight">
+                  <span class="fas fa-angle-down mr-3"></span>Action on Element
+                </button>
+              </h5>
+            </div>
+            <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion3">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="input-select">Step Type</label>
+                      <select class="form-control" id="input-select" formControlName="test_case_type">
+                        <option value="ENTER_VALUE">Enter Value</option>
+                        <option value="READ">Read Value</option>
+                        <option value="CLICK">CLick On Element</option>
+                        <option value="VALIDATE">Validate</option>
+                        <option value="JUMP">Jump (Condition)</option>
+                      </select>
+                    </div>
+                  </div>
+                  <form formGroupName="test_case_details" style="width: 100%;">
+                    <form formGroupName="action">
+                      <div class="col-md-6" *ngIf="formGroup.get('test_case_type')?.value=='ENTER_VALUE'"
+                        formGroupName="eneter_value" style="width: 100%;">
+                        <label for="xpath">Value for Input</label>
+                        <input type="text" class="form-control" id="xpath"
+                          placeholder="Specify the value to be typed in the field" required="" formControlName="value">
+                      </div>
+                      <div class="col-md-6" *ngIf="formGroup.get('test_case_type')?.value=='CLICK'">
+                        <label for="xpath">Element will be clicked based on selector !</label>
+                      </div>
+                    </form>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-2">
+            <div class="card-header" id="headingNine">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseNine"
+                  aria-expanded="false" aria-controls="collapseNine">
+                  <span class="fas fa-angle-down mr-3"></span>Assertion
+                </button>
+              </h5>
+            </div>
+            <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordion3">
+              <div class="card-body">
+                Yet to be developed !
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

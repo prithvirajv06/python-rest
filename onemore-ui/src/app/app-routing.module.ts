@@ -1,51 +1,27 @@
-import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import {
-  NbAuthComponent,
-  NbLoginComponent,
-  NbLogoutComponent,
-  NbRegisterComponent,
-  NbRequestPasswordComponent,
-  NbResetPasswordComponent,
-} from '@nebular/auth';
-import { OnemoreLoginComponent } from './auth/onemore-login/onemore-login.component';
-import { OnemoreRegisterComponent } from './auth/onemore-register/onemore-register.component';
+import { RouterModule, Routes } from '@angular/router';
+import { AppStoreService } from './core/app-store.service';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { AuthGuard } from './core/auth.guard';
 
-export const routes: Routes = [
-  // {
-  //   path: 'pages',
-  //   loadChildren: () => import('./pages/pages.module')
-  //     .then(m => m.PagesModule),
-  // },
+const routes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   {
-    path: 'auth',
-    component: NbAuthComponent,
-    children: [
-      {
-        path: '',
-        component: NbLoginComponent,
-      },
-      {
-        path: 'login',
-        component: OnemoreLoginComponent,
-      },
-      {
-        path: 'register',
-        component: OnemoreRegisterComponent,
-      }
-    ],
+    path: 'onemore',
+    loadChildren: () =>
+      import('../app/ui-surfing/ui-surfing.module').then(
+        (m) => m.UiSurfingModule
+      ),
+    canActivate: [AuthGuard],
   },
-  { path: '', redirectTo: 'auth', pathMatch: 'full' },
-  { path: '**', redirectTo: 'pages' },
 ];
 
-const config: ExtraOptions = {
-  useHash: false,
-};
-
 @NgModule({
-  imports: [RouterModule.forRoot(routes, config)],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
+  providers: [AppStoreService, AuthGuard],
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

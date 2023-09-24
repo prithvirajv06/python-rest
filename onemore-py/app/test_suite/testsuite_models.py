@@ -13,16 +13,20 @@ class TestSuite(db.Model):
     description = db.Column(db.String(500), nullable=True)
     user = db.Column(db.String(10), db.ForeignKey("users.id"), nullable=False)
     workspace = db.Column(db.String(10), db.ForeignKey("workspace.id"), nullable=False)
+    application = db.Column()
+    loaderCss = db.Column()
 
     def __init__(self, **kwargs):
         """
         The function takes in a dictionary of keyword arguments and assigns the values to the class
         attributes
         """
-        self.testsuite_name = kwargs.get("")
+        self.testsuite_name = kwargs.get("testsuite_name")
         self.description = kwargs.get("description")
         self.user = kwargs.get("user")
         self.workspace = kwargs.get("workspace")
+        self.application = kwargs.get("application")
+        self.loaderCss = kwargs.get("loaderCss")
 
     def __repr__(self):
         """
@@ -37,3 +41,5 @@ class TestsuiteSchema(Schema):
     testsuite_name = fields.Str()
     description = fields.Str()
     user = fields.Str()
+    application = fields.Str()
+    loaderCss = fields.Str()

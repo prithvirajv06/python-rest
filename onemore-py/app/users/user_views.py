@@ -14,7 +14,9 @@ class SignUpApi(Resource):
         """
         input_data = request.get_json()
         response, status = create_user(request, input_data)
-        return make_response(response, status)
+        response = make_response(response, status)
+        response.headers['Access-Control-Allow-Origin'] = "*"
+        return response
 
 
 class LoginApi(Resource):

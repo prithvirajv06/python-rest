@@ -1,0 +1,26 @@
+.name-card {
+  width: 350px;
+  height: 50px;
+  margin-top: 4px;
+  text-align: center;
+
+  span {
+    margin-top: 6px;
+  }
+
+  input {
+    margin-left: 10%;
+    margin-top: 10px;
+    width: 75%;
+  }
+}
+
+i {
+  cursor: pointer;
+}
+
+.action-btn {
+  button {
+    margin-left: 10px;
+  }
+}
