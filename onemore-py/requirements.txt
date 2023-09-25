@@ -30,3 +30,4 @@ zipp==3.8.1
 pymysql
 cryptography
 selenium
+urllib3==1.26.6

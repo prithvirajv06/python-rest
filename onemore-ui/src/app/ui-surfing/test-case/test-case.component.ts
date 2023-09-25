@@ -19,15 +19,15 @@ export class TestCaseComponent extends AppCommonComponent implements OnInit {
     test_case_type: new FormControl(''),
     test_case_details: new FormGroup({
       selector_group: new FormGroup({
-        css_seclector: new FormGroup({
+        css_selector: new FormGroup({
           is_selected: new FormControl(false),
           selector: new FormControl(''),
         }),
-        id_seclector: new FormGroup({
+        id_selector: new FormGroup({
           is_selected: new FormControl(false),
           selector: new FormControl(''),
         }),
-        xpath_seclector: new FormGroup({
+        xpath_selector: new FormGroup({
           is_selected: new FormControl(false),
           selector: new FormControl(''),
         }),

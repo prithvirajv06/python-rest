@@ -29,17 +29,18 @@ def create_app():
 
     app_flask.config.from_object("config.Config")
 
-
     api = Api(app=app_flask)
     from app.workspace.workspace_routes import create_workspace_routes
     from app.test_suite.testsuite_routes import create_testsuite_routes
     from app.test_case.testcase_routes import create_testcase_routes
     from app.users.user_routes import create_authentication_routes
+    from app.driver.web_driver_routes import create_driver_routes
 
     create_authentication_routes(api=api)
     create_workspace_routes(api=api)
     create_testsuite_routes(api=api)
     create_testcase_routes(api=api)
+    create_driver_routes(api=api)
 
     db.init_app(app_flask)
 
@@ -51,5 +52,5 @@ def create_app():
 
 if __name__ == "__main__":
     app = create_app()
-    CORS(app,allow_headers=['Authorization'])
+    CORS(app, allow_headers=['Authorization'])
     app.run(host="0.0.0.0", port=5000)

@@ -35,7 +35,7 @@
                           <label class="col-sm-3 col-form-label text-sm-right">Selectors</label>
                           <div class="col-sm-6">
                             <div class="custom-controls-stacked">
-                              <form formGroupName="css_seclector">
+                              <form formGroupName="css_selector">
                                 <label class="custom-control custom-checkbox">
                                   <input id="ck1" name="ck1" type="checkbox" data-parsley-multiple="groups" value="true"
                                     data-parsley-mincheck="2" data-parsley-errors-container="#error-container1"
@@ -43,7 +43,7 @@
                                     class="custom-control-label">CSS</span>
                                 </label>
                               </form>
-                              <form formGroupName="id_seclector">
+                              <form formGroupName="id_selector">
                                 <label class="custom-control custom-checkbox">
                                   <input id="ck2" name="ck2" type="checkbox" data-parsley-multiple="groups" value="true"
                                     data-parsley-mincheck="2" data-parsley-errors-container="#error-container1"
@@ -51,7 +51,7 @@
                                     class="custom-control-label">ID</span>
                                 </label>
                               </form>
-                              <form formGroupName="xpath_seclector">
+                              <form formGroupName="xpath_selector">
                                 <label class="custom-control custom-checkbox">
                                   <input id="ck3" name="ck3" type="checkbox" data-parsley-multiple="groups" value="true"
                                     data-parsley-mincheck="2" required=""
@@ -66,8 +66,8 @@
                       </div>
                       <div class="col-md-8">
                         <ng-container
-                          *ngIf="formGroup.get('test_case_details')?.get('selector_group')?.get('xpath_seclector')?.get('is_selected')?.value">
-                          <form formGroupName="xpath_seclector">
+                          *ngIf="formGroup.get('test_case_details')?.get('selector_group')?.get('xpath_selector')?.get('is_selected')?.value">
+                          <form formGroupName="xpath_selector">
                             <label for="xpath">X-Path</label>
                             <input type="text" class="form-control" id="xpath" placeholder="selector" required=""
                               formControlName="selector">
@@ -75,8 +75,8 @@
                         </ng-container>
                         <br>
                         <ng-container
-                          *ngIf="formGroup.get('test_case_details')?.get('selector_group')?.get('css_seclector')?.get('is_selected')?.value">
-                          <form formGroupName="css_seclector">
+                          *ngIf="formGroup.get('test_case_details')?.get('selector_group')?.get('css_selector')?.get('is_selected')?.value">
+                          <form formGroupName="css_selector">
                             <label for="css">CSS</label>
                             <input type="text" class="form-control" id="css" placeholder="selector" required=""
                               formControlName="selector">
@@ -84,8 +84,8 @@
                         </ng-container>
                         <br>
                         <ng-container
-                          *ngIf="formGroup.get('test_case_details')?.get('selector_group')?.get('id_seclector')?.get('is_selected')?.value">
-                          <form formGroupName="id_seclector">
+                          *ngIf="formGroup.get('test_case_details')?.get('selector_group')?.get('id_selector')?.get('is_selected')?.value">
+                          <form formGroupName="id_selector">
                             <label for="id">Field ID</label>
                             <input type="text" class="form-control" id="id" placeholder="selector" required=""
                               formControlName="selector">

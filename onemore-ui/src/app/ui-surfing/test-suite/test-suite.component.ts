@@ -188,6 +188,6 @@ export class TestSuiteComponent extends AppCommonComponent implements OnInit {
   }
 
   setTestCaseData() {
-    this.getAllTestCase(this.selectedTestSuite);
+    if (this.selectedTestSuite) this.getAllTestCase(this.selectedTestSuite);
   }
 }
