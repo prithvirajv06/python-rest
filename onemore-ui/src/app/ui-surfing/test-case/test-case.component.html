@@ -133,6 +133,14 @@
                       <div class="col-md-6" *ngIf="formGroup.get('test_case_type')?.value=='CLICK'">
                         <label for="xpath">Element will be clicked based on selector !</label>
                       </div>
+
+                      <div class="col-md-12" *ngIf="formGroup.get('test_case_type')?.value=='READ'">
+                        <div class="col-md-6" formGroupName="read" style="width: 100%;">
+                          <label for="xpath">Variable Name</label>
+                          <input type="text" class="form-control" id="xpath" placeholder="Specify the variable name"
+                            required="" formControlName="var_name">
+                        </div>
+                      </div>
                     </form>
                   </form>
                 </div>
@@ -150,7 +158,54 @@
             </div>
             <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordion3">
               <div class="card-body">
-                Yet to be developed !
+                <form formGroupName="test_case_details" style="width: 100%;">
+                  <form formGroupName="action">
+                    <form formArrayName="assertion">
+                      <div
+                        *ngFor="let assertionfg of formGroup?.controls?.test_case_details?.controls?.action?.controls?.assertion?.controls;let i=index"
+                        [formGroup]="assertionfg">
+                        <h5>Assertion {{i+1}}</h5>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <label for="xpath">Assertion Type</label>
+                            <select class="form-control" id="input-select" formControlName="assertion_type">
+                              <option value="APPEARANCE">Check element visibility</option>
+                              <option value="FIELD_VALUE">Check for text</option>
+                              <option value="DISPLAY_TEXT">Check for field value</option>
+                            </select>
+                          </div>
+
+                          <div class="col-md-6">
+                            <label for="xpath">Field element by</label>
+                            <select class="form-control" id="input-select" formControlName="assertion_type">
+                              <option value="id">ID</option>
+                              <option value="css">CSS</option>
+                              <option value="xpath">X-Path</option>
+                            </select>
+                          </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <label for="xpath">Field to validate</label>
+                            <input type="text" class="form-control" id="xpath" placeholder="Specify the variable name"
+                              required="" formControlName="field_to_validate">
+                          </div>
+
+
+                          <div class="col-md-6">
+                            <label for="xpath">True Value</label>
+                            <input type="text" class="form-control" id="xpath" placeholder="Specify the variable name"
+                              required="" formControlName="true_value">
+                          </div>
+                        </div>
+                        <hr>
+                      </div>
+                      <br>
+                      <button class="btn btn-primary" (click)="addAssertion()">Add Assertion</button>
+                    </form>
+                  </form>
+                </form>
               </div>
             </div>
           </div>

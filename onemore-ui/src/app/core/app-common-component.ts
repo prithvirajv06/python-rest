@@ -19,6 +19,7 @@ export class AppCommonComponent extends CommonConst {
     public notificationService: NotificationService
   ) {
     super();
+    window.scroll(0,0)
   }
 
   handleError(error: any) {

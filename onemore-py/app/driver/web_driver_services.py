@@ -55,10 +55,10 @@ class OneMoreExecutor():
                     self.sendKeys(self, data=testcase_details['action']['eneter_value']['value'])
                 elif testcase.test_case_type == 'CLICK':
                     element.click()
-                elif testcase.test_case_type == 'READ_VALUE':
+                elif testcase.test_case_type == 'READ':
                     self.var_dict[testcase_details['action']['read']['var_name']] = self.getText(self, element=element)
                 elif testcase.test_case_type == 'VALIDATE':
-                    
+                    self.assertion_condition(self)
 
     def getElement(self, locator, locatorType="id"):
         element = None
@@ -281,3 +281,22 @@ class OneMoreExecutor():
 
     def refresh(self):
         self.driver.get(self.driver.current_url)
+
+    def assertion_condition(self, validation):
+        if validation['assertion'] != None:
+            for assertion in validation['assertion']:
+                element = self.getElement(self, assertion['field_to_validate'], assertion['find_by'])
+                if element != None:
+                    if assertion['assertion_type'] == 'APPEARANCE':
+                        is_displayed = self.isElementDisplayed(self, element=element)
+                        logging.info("The element is displayed: " + is_displayed)
+                        return is_displayed
+                    elif assertion['assertion_type'] == 'FIELD_VALUE':
+                        actual_value = self.getAttributeValue(self, element=element)
+                        logging.info("Checking for true value: " + actual_value == assertion['true_value'])
+                        return actual_value == assertion['true_value']
+                    elif assertion['assertion_type'] == 'DISPLAY_TEXT':
+                        logging.info("Finding text in the element")
+                        actual_value = self.getText(self, element=element)
+                        logging.info("Found text in the element " + actual_value == assertion['true_value'])
+                        return actual_value == assertion['true_value']

@@ -10,9 +10,9 @@
         <button class="btn btn-primary" style="float: right;" (click)="createTS()">Add
           Testsuite <i class="fas fa-plus"></i></button>
       </div>
-      <div class="card testsuite-card col-md-2" *ngFor="let ts of testsuiteList">
+      <div class="card testsuite-card col-md-2" *ngFor="let ts of testsuiteList" (click)="editTestSuite(ts)">
         <i class="m-r-10 mdi mdi-zip-box"></i>
-        <span class="name" (click)="editTestSuite(ts)">{{ts.testsuite_name}}</span>
+        <span class="name">{{ts.testsuite_name}}</span>
         <p class="description">{{ts.description}}</p>
 
         <span class="delete-section" (click)="deleteTestSuite(ts.id)">
@@ -123,7 +123,7 @@
           <div class="row">
             <div class="col-md-12" style="text-align: left;">
               <ng-container *ngIf="!selectedTestCase">
-                <div style="text-align: center;margin-top: 45%;">
+                <div style="text-align: center;margin-top: 25%;">
                   Select A Test Case To Start Editing
                 </div>
               </ng-container>

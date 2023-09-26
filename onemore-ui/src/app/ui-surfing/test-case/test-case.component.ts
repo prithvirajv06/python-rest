@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { AppCommonComponent } from 'src/app/core/app-common-component';
 
 @Component({
@@ -11,8 +11,7 @@ export class TestCaseComponent extends AppCommonComponent implements OnInit {
   @Input()
   testcase: any;
 
-
-  formGroup: FormGroup = new FormGroup({
+  formGroup: any | FormGroup = new FormGroup({
     id: new FormControl(''),
     test_suite: new FormControl(''),
     testcase_name: new FormControl(''),
@@ -36,6 +35,17 @@ export class TestCaseComponent extends AppCommonComponent implements OnInit {
         eneter_value: new FormGroup({
           value: new FormControl(''),
         }),
+        read: new FormGroup({
+          var_name: new FormControl(''),
+        }),
+        assertion: new FormArray([
+          new FormGroup({
+            assertion_type: new FormControl(''),
+            field_to_validate: new FormControl(''),
+            true_value: new FormControl(''),
+            find_by: new FormControl(''),
+          }),
+        ]),
       }),
     }),
   });
@@ -61,6 +71,21 @@ export class TestCaseComponent extends AppCommonComponent implements OnInit {
         (error) => {
           this.handleError(error);
         }
+      );
+  }
+
+  addAssertion() {
+    this.formGroup
+      .get('test_case_details')
+      .get('action')
+      .get('assertion')
+      .push(
+        new FormGroup({
+          assertion_type: new FormControl(''),
+          field_to_validate: new FormControl(''),
+          true_value: new FormControl(''),
+          find_by: new FormControl(''),
+        })
       );
   }
 }
